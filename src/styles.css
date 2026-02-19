@@ -2,6 +2,11 @@
   color-scheme: dark;
 }
 
+:focus:not(:focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 /* absolutely no scrolling */
 html, body, #root {
   width: 100%;
