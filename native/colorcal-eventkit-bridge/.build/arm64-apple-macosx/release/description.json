@@ -1,0 +1,221 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.ColorCalBridge-arm64-apple-macosx26.0-release.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.build/sources",
+      "importPath" : "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/Sources/ColorCalBridge/main.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "ColorCalBridge",
+      "moduleOutputPath" : "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/Modules/ColorCalBridge.swiftmodule",
+      "objects" : [
+        "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.build/main.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx12.0",
+        "-whole-module-optimization",
+        "-num-threads",
+        "10",
+        "-serialize-diagnostics",
+        "-O",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "ColorCalBridge_main",
+        "-color-diagnostics",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "colorcal_eventkit_bridge"
+      ],
+      "outputFileMapPath" : "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/Modules/ColorCalBridge.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/Sources/ColorCalBridge/main.swift"
+      ],
+      "tempsPath" : "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.build",
+      "wholeModuleOptimization" : true
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "ColorCalBridge" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "ColorCalBridge",
+      "-package-name",
+      "colorcal_eventkit_bridge",
+      "-c",
+      "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/Sources/ColorCalBridge/main.swift",
+      "-I",
+      "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/Modules",
+      "-target",
+      "arm64-apple-macosx12.0",
+      "-whole-module-optimization",
+      "-num-threads",
+      "10",
+      "-serialize-diagnostics",
+      "-O",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "ColorCalBridge_main",
+      "-color-diagnostics",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "colorcal_eventkit_bridge",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "ColorCalBridge" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/Sources/ColorCalBridge/main.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.build/sources"
+    },
+    "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.build/main.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.product/Objects.LinkFileList"
+    },
+    "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/swift-version--1AB21518FC5DEDBE.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/swift-version--1AB21518FC5DEDBE.txt"
+    }
+  }
+}

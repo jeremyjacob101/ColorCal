@@ -1,0 +1,13 @@
+{
+  "": {
+    "dependencies": "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.build/ColorCalBridge.d",
+    "object": "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.build/ColorCalBridge.o",
+    "swift-dependencies": "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.build/master.swiftdeps"
+  },
+  "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/Sources/ColorCalBridge/main.swift": {
+    "object": "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.build/main.swift.o",
+    "swiftmodule": "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.build/main.swiftdeps",
+    "diagnostics": "/Users/jeremyjacob/Documents/Coding/ColorCal/Codebase - ColorCal/native/colorcal-eventkit-bridge/.build/arm64-apple-macosx/release/ColorCalBridge.build/main.dia"
+  }
+}

@@ -1,0 +1,203 @@
+:root {
+  color-scheme: dark;
+}
+
+/* absolutely no scrolling */
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: #1c1c1e;
+  color: #f2f2f7;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  user-select: none;
+}
+
+/* ===== App layout: two fixed rows + grid that takes the rest ===== */
+.shell {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 6px;          /* SMALL */
+  gap: 4px;              /* SMALL */
+}
+
+/* Row 1: Calendar / Settings tabs (must not overflow) */
+.topbar {
+  height: 28px;
+  display: flex;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.topbar .btn {
+  flex: 1 1 0;
+  min-width: 0;          /* CRITICAL: allow shrink */
+  height: 28px;
+  padding: 0;
+  border-radius: 10px;
+  font-size: 12px;
+  display: grid;
+  place-items: center;
+}
+
+/* Row 2: month header (left btn, centered title, right btn) */
+.headerRow {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.headerRow .navBtn {
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+}
+
+.headerRow .title {
+  flex: 1 1 auto;
+  min-width: 0;          /* CRITICAL */
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Buttons (base) */
+.btn {
+  appearance: none;
+  border: 0;
+  background: #2c2c2e;
+  color: #f2f2f7;
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* ===== Grid: exactly fills remaining space, 7x6 ===== */
+.calendarView {
+  flex: 1;
+  min-height: 0;         /* CRITICAL: prevents flex overflow/scroll */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid {
+  flex: 1;
+  min-height: 0;         /* CRITICAL */
+  width: 100%;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-rows: repeat(6, minmax(0, 1fr)); /* force exactly 6 rows */
+  gap: 2px;              /* VERY SMALL gaps */
+}
+
+/* each day cell uses available size; no fixed heights */
+.cell {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  padding: 2px 0;        /* no horizontal padding */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.daynum {
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 700;
+  padding-left: 2px;
+}
+
+.daynum.inMonth {
+  color: #ffffff;
+}
+
+.daynum.outMonth {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.daynum.today {
+  border-bottom: 2px solid #ff3b30;
+}
+
+/* dots */
+.dots {
+  margin-top: 4px;
+  padding-left: 2px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+}
+
+/* Settings: if too long, make it scroll INSIDE its area */
+.panel {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 8px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.name {
+  max-width: 150px;
+  font-size: 12px;
+  color: #f2f2f7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+input[type="checkbox"] {
+  accent-color: #0a84ff;
+}
