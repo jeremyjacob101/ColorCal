@@ -10,6 +10,48 @@ function toHexIfPossible(color: string): string {
   return "#3b82f6";
 }
 
+// Tries to group like macOS: iCloud / Google / Subscribed / Other.
+// If your CalendarPref has different fields, this still falls back safely.
+function getGroupLabel(c: CalendarPref): string {
+  const anyC = c as any;
+
+  const provider =
+    (typeof anyC.provider === "string" && anyC.provider) ||
+    (typeof anyC.source === "string" && anyC.source) ||
+    (typeof anyC.accountType === "string" && anyC.accountType) ||
+    (typeof anyC.origin === "string" && anyC.origin) ||
+    "";
+
+  const accountName =
+    (typeof anyC.accountName === "string" && anyC.accountName) ||
+    (typeof anyC.account === "string" && anyC.account) ||
+    "";
+
+  const p = provider.toLowerCase();
+  const a = accountName.toLowerCase();
+
+  if (p.includes("icloud") || a.includes("icloud") || a.includes("apple")) return "iCloud";
+  if (p.includes("google") || a.includes("google") || a.includes("gmail")) return "Google";
+  if (p.includes("sub") || a.includes("sub") || p.includes("webcal") || p.includes("ics"))
+    return "Subscribed Calendars";
+
+  // If you have a clean account name, use it as a header (looks nice / native).
+  if (accountName.trim()) return accountName.trim();
+
+  return "Calendars";
+}
+
+function groupCalendars(cals: CalendarPref[]) {
+  const map = new Map<string, CalendarPref[]>();
+  for (const c of cals) {
+    const label = getGroupLabel(c);
+    const arr = map.get(label) ?? [];
+    arr.push(c);
+    map.set(label, arr);
+  }
+  return Array.from(map.entries());
+}
+
 export function SettingsPanel({ calendars, onChange }: Props) {
   const toggle = (id: string) => {
     const next = calendars.map((c) =>
@@ -25,28 +67,56 @@ export function SettingsPanel({ calendars, onChange }: Props) {
     window.colorcal.saveCalendars(next).catch(() => {});
   };
 
-  return (
-    <div className="panel">
-      {calendars.map((c) => (
-        <div key={c.id} className="row">
-          <label style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <input
-              type="checkbox"
-              checked={c.enabled}
-              onChange={() => toggle(c.id)}
-            />
-            <span className="name" title={c.name}>
-              {c.name}
-            </span>
-          </label>
+  const grouped = groupCalendars(calendars);
 
-          <input
-            type="color"
-            value={toHexIfPossible(c.color)}
-            onChange={(e) => setColor(c.id, e.target.value)}
-            title="Dot color"
-          />
-        </div>
+  return (
+    <div className="panel panel--settings">
+      {grouped.map(([label, items]) => (
+        <section key={label} className="ccSection" aria-label={label}>
+          <div className="ccSectionTitle">{label}</div>
+
+          <div className="ccCard">
+            {items.map((c) => (
+              <div key={c.id} className="ccRow">
+                {/* Left: color dot + name */}
+                <div className="ccLeft">
+                  <span
+                    className="ccDot"
+                    style={{ background: toHexIfPossible(c.color) }}
+                    aria-hidden="true"
+                  />
+
+                  <span className="ccName" title={c.name}>
+                    {c.name}
+                  </span>
+                </div>
+
+                {/* Right: mac-like switch */}
+                <label className="ccSwitch" title={c.enabled ? "On" : "Off"}>
+                  <input
+                    type="checkbox"
+                    checked={c.enabled}
+                    onChange={() => toggle(c.id)}
+                    aria-label={`Toggle ${c.name}`}
+                  />
+                  <span className="ccSwitchTrack" aria-hidden="true">
+                    <span className="ccSwitchThumb" aria-hidden="true" />
+                  </span>
+                </label>
+
+                {/* Hidden color picker (clickable dot area for quick change) */}
+                <input
+                  className="ccColorWell"
+                  type="color"
+                  value={toHexIfPossible(c.color)}
+                  onChange={(e) => setColor(c.id, e.target.value)}
+                  title="Dot color"
+                  aria-label={`Set color for ${c.name}`}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
       ))}
     </div>
   );

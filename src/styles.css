@@ -166,38 +166,155 @@ body {
   border-radius: 999px;
 }
 
+/* =========================
+   Settings panel: macOS-like
+   ========================= */
+
 /* Settings: if too long, make it scroll INSIDE its area */
 .panel {
   flex: 1;
   min-height: 0;
   overflow: auto;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: 14px;
   padding: 8px;
 }
 
-.row {
+/* Settings-specific spacing to mimic native grouped list */
+.panel--settings {
+  background: rgba(44, 44, 46, 0.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px;
+}
+
+.ccSection {
+  margin: 0 0 10px 0;
+}
+
+.ccSectionTitle {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: rgba(242, 242, 247, 0.95);
+  padding: 4px 6px 8px 6px;
+}
+
+.ccCard {
+  background: #2c2c2e;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+.ccRow {
+  position: relative;
+  height: 32px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 6px;
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 10px;
+  gap: 10px;
 }
 
-.row:last-child {
-  border-bottom: none;
+.ccRow + .ccRow {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.name {
-  max-width: 150px;
-  font-size: 12px;
+.ccLeft {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ccDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+  flex: 0 0 auto;
+}
+
+.ccName {
+  min-width: 0;
+  font-size: 13px;
+  line-height: 1;
   color: #f2f2f7;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
+/* macOS-like switch */
+.ccSwitch {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 12px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ccSwitch input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ccSwitchTrack {
+  width: 25px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(120, 120, 128, 0.30); /* off track */
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.10) inset;
+  transition: background 120ms ease;
+}
+
+.ccSwitchThumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #ffffff;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  transition: transform 120ms ease;
+}
+
+.ccSwitch input:checked + .ccSwitchTrack {
+  background: #0a84ff; /* macOS blue */
+}
+
+.ccSwitch input:checked + .ccSwitchTrack .ccSwitchThumb {
+  transform: translateX(13px);
+}
+
+/* Optional: keyboard focus ring on switch */
+.ccSwitch input:focus-visible + .ccSwitchTrack {
+  outline: 2px solid rgba(10, 132, 255, 0.6);
+  outline-offset: 2px;
+}
+
+/* Hidden color input “hotspot” over the dot area (click near dot to change color) */
+.ccColorWell {
+  position: absolute;
+  left: 0px;
+  width: 12px;
+  height: 12px;
+  opacity: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Keep your checkbox accent in case other parts still use checkboxes */
 input[type="checkbox"] {
   accent-color: #0a84ff;
 }
