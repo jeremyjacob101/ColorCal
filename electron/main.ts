@@ -2,7 +2,11 @@ import { app, BrowserWindow, ipcMain, nativeImage, Tray } from "electron";
 import path from "node:path";
 import fs from "node:fs";
 import { fileURLToPath } from "node:url";
-import { listCalendarsEventKit, eventsByDayEventKit } from "./eventkitBridge";
+import {
+  listCalendarsEventKit,
+  eventsByDayEventKit,
+  eventsForDayEventKit,
+} from "./eventkitBridge";
 import { store, type CalendarPref } from "./settings";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -51,7 +55,7 @@ function createWindow() {
 
   win = new BrowserWindow({
     width: 250,
-    height: 250,
+    height: 218,
     useContentSize: true,
     show: false,
     frame: false,
@@ -151,3 +155,12 @@ ipcMain.handle(
     });
   },
 );
+
+ipcMain.handle("events:forDay", async (_evt, args: { dayMs: number }) => {
+  const prefs = await ensureCalendarPrefs();
+  const enabledIds = prefs.filter((p) => p.enabled).map((p) => p.id);
+  return await eventsForDayEventKit({
+    dayMs: args.dayMs,
+    calIds: enabledIds,
+  });
+});

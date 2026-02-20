@@ -4,3 +4,13 @@ export type CalendarPref = {
   enabled: boolean;
   color: string;
 };
+
+export type CalendarEvent = {
+  id: string;
+  title: string;
+  startMs: number;
+  endMs: number;
+  isAllDay: boolean;
+  calendarId: string;
+  calendarName: string;
+};

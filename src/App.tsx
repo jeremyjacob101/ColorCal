@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { Settings } from "lucide-react";
 import "./styles.css";
 import type { CalendarPref } from "./types/colorcal";
 import { SixWeekGrid } from "./components/SixWeekGrid";
 import { SettingsPanel } from "./components/SettingsPanel";
+import { DayEventsModal } from "./components/DayEventsModal";
 
 export default function App() {
   const [calendars, setCalendars] = useState<CalendarPref[]>([]);
   const [showSettings, setShowSettings] = useState(false);
+  const [selectedDay, setSelectedDay] = useState<Date | null>(null);
 
   useEffect(() => {
     window.colorcal
@@ -17,37 +18,27 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (!showSettings) return;
-
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setShowSettings(false);
+      if (e.key !== "Escape") return;
+      if (selectedDay) {
+        setSelectedDay(null);
+        return;
+      }
+      if (showSettings) setShowSettings(false);
     };
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [showSettings]);
+  }, [selectedDay, showSettings]);
 
   return (
     <div className="shell">
-      <div className="topbar">
-        <button
-          className="btn"
-          onClick={() => setShowSettings(false)}
-          style={{ opacity: showSettings ? 0.6 : 1 }}
-        >
-          Calendar
-        </button>
-        <button
-          className="btn topbarSettingsBtn"
-          onClick={() => setShowSettings((prev) => !prev)}
-          style={{ opacity: showSettings ? 1 : 0.6 }}
-          aria-label="Settings"
-        >
-          <Settings size={14} strokeWidth={2} aria-hidden="true" />
-        </button>
-      </div>
-
-      <SixWeekGrid calendars={calendars} />
+      <SixWeekGrid
+        calendars={calendars}
+        showSettings={showSettings}
+        onToggleSettings={() => setShowSettings((prev) => !prev)}
+        onDayClick={setSelectedDay}
+      />
 
       {showSettings && (
         <>
@@ -66,6 +57,14 @@ export default function App() {
             <SettingsPanel calendars={calendars} onChange={setCalendars} />
           </div>
         </>
+      )}
+
+      {selectedDay && (
+        <DayEventsModal
+          day={selectedDay}
+          calendars={calendars}
+          onClose={() => setSelectedDay(null)}
+        />
       )}
     </div>
   );

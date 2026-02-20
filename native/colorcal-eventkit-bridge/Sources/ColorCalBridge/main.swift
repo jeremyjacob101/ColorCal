@@ -58,7 +58,7 @@ guard requestAccess(store: store) else {
 }
 
 guard CommandLine.arguments.count >= 2 else {
-  fail("Missing command. Use: list-calendars | events-by-day")
+  fail("Missing command. Use: list-calendars | events-by-day | events-for-day")
 }
 
 let cmd = CommandLine.arguments[1]
@@ -139,6 +139,56 @@ if cmd == "events-by-day" {
   var out: [String: [String]] = [:]
   for (k, v) in byDay {
     out[k] = Array(v)
+  }
+
+  jsonPrint(out)
+  exit(0)
+}
+
+if cmd == "events-for-day" {
+  guard
+    let dayMsStr = argValue("--day-ms"),
+    let dayMs = Int64(dayMsStr)
+  else {
+    fail("Missing --day-ms")
+  }
+
+  let calIds = (argValue("--cal-ids") ?? "")
+    .split(separator: ",")
+    .map { String($0) }
+    .filter { !$0.isEmpty }
+
+  let dayDate = Date(timeIntervalSince1970: Double(dayMs) / 1000.0)
+  let cal = Calendar.current
+  let dayStart = cal.startOfDay(for: dayDate)
+  let dayEnd = cal.date(byAdding: .day, value: 1, to: dayStart)!
+
+  let allCalendars = store.calendars(for: .event)
+  let calendars: [EKCalendar]
+  if calIds.isEmpty {
+    calendars = allCalendars
+  } else {
+    let set = Set(calIds)
+    calendars = allCalendars.filter { set.contains($0.calendarIdentifier) }
+  }
+
+  let predicate = store.predicateForEvents(withStart: dayStart, end: dayEnd, calendars: calendars)
+  let events = store.events(matching: predicate)
+
+  let out: [[String: Any]] = events.compactMap { e in
+    let overlapStart = max(e.startDate, dayStart)
+    let overlapEnd = min(e.endDate, dayEnd)
+    if overlapEnd <= overlapStart { return nil }
+
+    return [
+      "id": e.eventIdentifier ?? UUID().uuidString,
+      "title": (e.title?.isEmpty == false ? e.title! : "Untitled Event"),
+      "startMs": Int64((e.startDate.timeIntervalSince1970 * 1000.0).rounded()),
+      "endMs": Int64((e.endDate.timeIntervalSince1970 * 1000.0).rounded()),
+      "isAllDay": e.isAllDay,
+      "calendarId": e.calendar.calendarIdentifier,
+      "calendarName": e.calendar.title
+    ]
   }
 
   jsonPrint(out)

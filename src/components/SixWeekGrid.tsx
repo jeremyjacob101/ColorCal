@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { CircleUserRound, Settings } from "lucide-react";
 import {
   addDays,
   addMonths,
@@ -10,11 +11,23 @@ import {
 } from "date-fns";
 import type { CalendarPref } from "../types/colorcal";
 
-type Props = { calendars: CalendarPref[] };
+type Props = {
+  calendars: CalendarPref[];
+  showSettings: boolean;
+  onToggleSettings: () => void;
+  onDayClick: (day: Date) => void;
+};
 
-export function SixWeekGrid({ calendars }: Props) {
+export function SixWeekGrid({
+  calendars,
+  showSettings,
+  onToggleSettings,
+  onDayClick,
+}: Props) {
   const [month, setMonth] = useState(() => startOfMonth(new Date()));
   const [byDay, setByDay] = useState<Record<string, string[]>>({});
+  const swipeAccumRef = useRef(0);
+  const swipeCooldownUntilRef = useRef(0);
 
   const enabledCount = useMemo(
     () => calendars.filter((c) => c.enabled).length,
@@ -49,24 +62,50 @@ export function SixWeekGrid({ calendars }: Props) {
   }, [gridStart, enabledCount]);
 
   const today = new Date();
+  const goPrevMonth = () => setMonth((m) => addMonths(m, -1));
+  const goNextMonth = () => setMonth((m) => addMonths(m, 1));
+
+  const handleMonthSwipe = (e: React.WheelEvent<HTMLDivElement>) => {
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+    if (Math.abs(e.deltaX) < 2) return;
+
+    e.preventDefault();
+    const now = Date.now();
+    if (now < swipeCooldownUntilRef.current) return;
+
+    if (Math.sign(swipeAccumRef.current) !== Math.sign(e.deltaX)) {
+      swipeAccumRef.current = 0;
+    }
+    swipeAccumRef.current += e.deltaX;
+
+    if (Math.abs(swipeAccumRef.current) < 38) return;
+
+    if (swipeAccumRef.current > 0) goNextMonth();
+    else goPrevMonth();
+
+    swipeAccumRef.current = 0;
+    swipeCooldownUntilRef.current = now + 320;
+  };
 
   return (
-    <div className="calendarView">
+    <div className="calendarView" onWheel={handleMonthSwipe}>
       <div className="headerRow">
-        <button
-          className="btn navBtn navPrev"
-          onClick={() => setMonth((m) => addMonths(m, -1))}
-        >
-          ◀
-        </button>
+        <div className="headerSideSlot" aria-hidden="true">
+          <CircleUserRound size={14} strokeWidth={2} />
+        </div>
 
-        <div className="title">{format(month, "MMMM yyyy")}</div>
+        <div className="headerCenter">
+          <div className="title">{format(month, "MMMM yyyy")}</div>
+        </div>
 
         <button
-          className="btn navBtn navNext"
-          onClick={() => setMonth((m) => addMonths(m, 1))}
+          type="button"
+          className="btn headerSideBtn headerSettingsBtn"
+          onClick={onToggleSettings}
+          style={{ opacity: showSettings ? 1 : 0.6 }}
+          aria-label="Settings"
         >
-          ▶
+          <Settings size={14} strokeWidth={2} aria-hidden="true" />
         </button>
       </div>
 
@@ -78,7 +117,17 @@ export function SixWeekGrid({ calendars }: Props) {
           const isToday = isSameDay(d, today);
 
           return (
-            <div key={key} className="cell" title={key}>
+            <div
+              key={key}
+              className="cell"
+              title={key}
+              onClick={() => onDayClick(d)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") onDayClick(d);
+              }}
+            >
               <div
                 className={[
                   "daynum",

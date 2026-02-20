@@ -1,5 +1,5 @@
 /// <reference types="vite/client" />
-import type { CalendarPref } from "./types/colorcal";
+import type { CalendarEvent, CalendarPref } from "./types/colorcal";
 
 declare global {
   interface Window {
@@ -10,6 +10,7 @@ declare global {
         startMs: number;
         endMs: number;
       }) => Promise<Record<string, string[]>>;
+      eventsForDay: (args: { dayMs: number }) => Promise<CalendarEvent[]>;
     };
   }
 }

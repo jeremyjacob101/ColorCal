@@ -23,65 +23,58 @@ body {
   user-select: none;
 }
 
-/* ===== App layout: two fixed rows + grid that takes the rest ===== */
+/* ===== App layout ===== */
 .shell {
+  --shell-pad: 6px;
+  --header-row-height: 30px;
   position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: 6px;          /* SMALL */
+  padding: var(--shell-pad);          /* SMALL */
   gap: 4px;              /* SMALL */
 }
 
-/* Row 1: Calendar / Settings tabs (must not overflow) */
-.topbar {
-  height: 28px;
-  display: flex;
-  gap: 4px;
-  overflow: hidden;
-}
-
-.topbar .btn {
-  flex: 1 1 0;
-  min-width: 0;          /* CRITICAL: allow shrink */
-  height: 28px;
-  padding: 0;
-  border-radius: 10px;
-  font-size: 12px;
-  display: grid;
-  place-items: center;
-}
-
-.topbarSettingsBtn {
-  flex: 0 0 34px !important;
-  position: relative;
-  z-index: 30;
-}
-
-/* Row 2: month header (left btn, centered title, right btn) */
+/* Month header */
 .headerRow {
-  height: 30px;
-  display: flex;
+  height: var(--header-row-height);
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) 28px;
   align-items: center;
   gap: 4px;
+  padding: 0 2px;
   overflow: hidden;
 }
 
-.headerRow .navBtn {
-  flex: 0 0 28px;
+.headerSideSlot,
+.headerSideBtn {
   width: 28px;
   height: 28px;
   padding: 0;
   border-radius: 10px;
   display: grid;
   place-items: center;
+  justify-self: center;
+}
+
+.headerSideSlot {
+  background: #2c2c2e;
+  color: #f2f2f7;
+}
+
+.headerCenter {
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .headerRow .title {
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   min-width: 0;          /* CRITICAL */
+  max-width: 150px;
   text-align: center;
   font-size: 12px;
   font-weight: 700;
@@ -91,10 +84,23 @@ body {
   text-overflow: ellipsis;
 }
 
+.headerSettingsBtn {
+  position: relative;
+  z-index: 30;
+}
+
+.headerSettingsBtn svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* Buttons (base) */
 .btn {
   appearance: none;
   border: 0;
+  padding: 0;
   background: #2c2c2e;
   color: #f2f2f7;
   cursor: pointer;
@@ -111,6 +117,7 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  gap: 4px;
 }
 
 .grid {
@@ -214,10 +221,10 @@ body {
 
 .settingsPopup {
   position: absolute;
-  top: 32px;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  top: calc(var(--shell-pad) + var(--header-row-height));
+  right: var(--shell-pad);
+  bottom: var(--shell-pad);
+  left: var(--shell-pad);
   z-index: 25;
   display: flex;
   pointer-events: none;
