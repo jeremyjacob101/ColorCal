@@ -5,6 +5,16 @@ type Props = {
   onChange: (next: CalendarPref[]) => void;
 };
 
+type CalendarPrefWithOptionalSource = CalendarPref &
+  Partial<{
+    provider: string;
+    source: string;
+    accountType: string;
+    origin: string;
+    accountName: string;
+    account: string;
+  }>;
+
 function toHexIfPossible(color: string): string {
   if (/^#[0-9a-fA-F]{6}$/.test(color)) return color;
   return "#3b82f6";
@@ -13,18 +23,18 @@ function toHexIfPossible(color: string): string {
 // Tries to group like macOS: iCloud / Google / Subscribed / Other.
 // If your CalendarPref has different fields, this still falls back safely.
 function getGroupLabel(c: CalendarPref): string {
-  const anyC = c as any;
+  const calendar = c as CalendarPrefWithOptionalSource;
 
   const provider =
-    (typeof anyC.provider === "string" && anyC.provider) ||
-    (typeof anyC.source === "string" && anyC.source) ||
-    (typeof anyC.accountType === "string" && anyC.accountType) ||
-    (typeof anyC.origin === "string" && anyC.origin) ||
+    (typeof calendar.provider === "string" && calendar.provider) ||
+    (typeof calendar.source === "string" && calendar.source) ||
+    (typeof calendar.accountType === "string" && calendar.accountType) ||
+    (typeof calendar.origin === "string" && calendar.origin) ||
     "";
 
   const accountName =
-    (typeof anyC.accountName === "string" && anyC.accountName) ||
-    (typeof anyC.account === "string" && anyC.account) ||
+    (typeof calendar.accountName === "string" && calendar.accountName) ||
+    (typeof calendar.account === "string" && calendar.account) ||
     "";
 
   const p = provider.toLowerCase();

@@ -53,6 +53,10 @@ body {
   place-items: center;
 }
 
+.topbarSettingsBtn {
+  flex: 0 0 34px !important;
+}
+
 /* Row 2: month header (left btn, centered title, right btn) */
 .headerRow {
   height: 30px;

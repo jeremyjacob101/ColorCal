@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Settings } from "lucide-react";
 import "./styles.css";
 import type { CalendarPref } from "./types/colorcal";
 import { SixWeekGrid } from "./components/SixWeekGrid";
@@ -26,11 +27,12 @@ export default function App() {
           Calendar
         </button>
         <button
-          className="btn"
+          className="btn topbarSettingsBtn"
           onClick={() => setShowSettings(true)}
           style={{ opacity: showSettings ? 1 : 0.6 }}
+          aria-label="Settings"
         >
-          Settings
+          <Settings size={14} strokeWidth={2} aria-hidden="true" />
         </button>
       </div>
 
