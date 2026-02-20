@@ -110,7 +110,7 @@ app.whenReady().then(() => {
   app.dock?.hide();
 
   const trayPath = path.join(process.cwd(), "build", "trayTemplate.png");
-  const trayImage = nativeImage.createFromPath(trayPath);
+  const trayImage = nativeImage.createFromPath(trayPath).resize({ height: 18 });
   trayImage.setTemplateImage?.(true);
 
   tray = new Tray(trayImage);

@@ -15730,7 +15730,7 @@ app$1.whenReady().then(() => {
   var _a, _b;
   (_a = app$1.dock) == null ? void 0 : _a.hide();
   const trayPath = path.join(process.cwd(), "build", "trayTemplate.png");
-  const trayImage = nativeImage.createFromPath(trayPath);
+  const trayImage = nativeImage.createFromPath(trayPath).resize({ height: 18 });
   (_b = trayImage.setTemplateImage) == null ? void 0 : _b.call(trayImage, true);
   tray = new Tray(trayImage);
   tray.setToolTip("ColorCal");
