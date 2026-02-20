@@ -16,6 +16,17 @@ export default function App() {
       .catch(() => setCalendars([]));
   }, []);
 
+  useEffect(() => {
+    if (!showSettings) return;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setShowSettings(false);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [showSettings]);
+
   return (
     <div className="shell">
       <div className="topbar">
@@ -28,7 +39,7 @@ export default function App() {
         </button>
         <button
           className="btn topbarSettingsBtn"
-          onClick={() => setShowSettings(true)}
+          onClick={() => setShowSettings((prev) => !prev)}
           style={{ opacity: showSettings ? 1 : 0.6 }}
           aria-label="Settings"
         >
@@ -36,10 +47,25 @@ export default function App() {
         </button>
       </div>
 
-      {showSettings ? (
-        <SettingsPanel calendars={calendars} onChange={setCalendars} />
-      ) : (
-        <SixWeekGrid calendars={calendars} />
+      <SixWeekGrid calendars={calendars} />
+
+      {showSettings && (
+        <>
+          <button
+            type="button"
+            className="settingsBackdrop"
+            onClick={() => setShowSettings(false)}
+            aria-label="Close settings"
+          />
+          <div
+            className="settingsPopup"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Settings"
+          >
+            <SettingsPanel calendars={calendars} onChange={setCalendars} />
+          </div>
+        </>
       )}
     </div>
   );
