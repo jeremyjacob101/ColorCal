@@ -22,8 +22,16 @@
       <stop offset="0%" stop-color="#86EFAC"/>
       <stop offset="100%" stop-color="#22C55E"/>
     </linearGradient>
+    <linearGradient id="titleBlue" x1="360" y1="78" x2="760" y2="168" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E0F2FE"/>
+      <stop offset="48%" stop-color="#7DD3FC"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#020617" flood-opacity="0.25"/>
+    </filter>
+    <filter id="titleShadow" x="-20%" y="-20%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0F172A" flood-opacity="0.28"/>
     </filter>
   </defs>
 
@@ -44,10 +52,10 @@
   <path d="M320 110H328" stroke="#0EA5E9" stroke-width="10" stroke-linecap="round"/>
   <path d="M320 152H328" stroke="#22C55E" stroke-width="10" stroke-linecap="round"/>
 
-  <text x="360" y="132" fill="#0F172A" font-family="Avenir Next, SF Pro Display, Segoe UI, sans-serif" font-size="84" font-weight="800" letter-spacing="-2">
+  <text x="360" y="132" fill="url(#titleBlue)" filter="url(#titleShadow)" font-family="Avenir Next, SF Pro Display, Segoe UI, sans-serif" font-size="84" font-weight="800" letter-spacing="-2">
     ColorCal
   </text>
-  <text x="362" y="182" fill="#475569" font-family="Avenir Next, SF Pro Text, Segoe UI, sans-serif" font-size="28" font-weight="600" letter-spacing="0.5">
+  <text x="362" y="182" fill="#64748B" font-family="Avenir Next, SF Pro Text, Segoe UI, sans-serif" font-size="28" font-weight="600" letter-spacing="0.5">
     A color-first menu bar calendar for macOS
   </text>
 </svg>

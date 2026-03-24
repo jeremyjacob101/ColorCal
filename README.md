@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/images/colorcal-screenshot.svg" alt="ColorCal menu bar calendar screenshot" width="960" />
+  <img src="docs/images/colorcal-screenshot.svg" alt="ColorCal menu bar calendar screenshot" width="820" />
 </p>
 
 ## Glanceable By Design
