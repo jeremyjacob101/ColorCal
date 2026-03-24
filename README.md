@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/images/colorcal-wordmark.svg" alt="ColorCal wordmark" width="760" />
+  <img src="docs/images/colorcal-wordmark-bright.svg" alt="ColorCal wordmark" width="760" />
 </p>
 
 <p align="center">
