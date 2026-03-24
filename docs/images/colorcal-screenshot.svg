@@ -1,0 +1,184 @@
+<svg width="1200" height="1130" viewBox="0 0 1200 1130" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ColorCal screenshot</title>
+  <desc id="desc">A stylized recreation of the ColorCal menu bar app showing the March 2026 six-week view with colorful event dots.</desc>
+  <defs>
+    <linearGradient id="wallpaper" x1="110" y1="120" x2="1080" y2="1070" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#161514"/>
+      <stop offset="58%" stop-color="#221F22"/>
+      <stop offset="100%" stop-color="#161517"/>
+    </linearGradient>
+    <linearGradient id="menubar" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6A645F"/>
+      <stop offset="55%" stop-color="#655F59"/>
+      <stop offset="100%" stop-color="#5F5A56"/>
+    </linearGradient>
+    <linearGradient id="window" x1="96" y1="166" x2="1096" y2="1036" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#202023"/>
+      <stop offset="100%" stop-color="#1A1A1D"/>
+    </linearGradient>
+    <linearGradient id="desktopGlow" x1="0" y1="190" x2="1200" y2="1130" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0F0F10" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#0A0A0B" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="1130" fill="url(#wallpaper)"/>
+  <rect width="1200" height="145" fill="url(#menubar)"/>
+  <rect x="0" y="145" width="1200" height="2" fill="#1B1A1D"/>
+  <rect x="0" y="147" width="1200" height="2" fill="#8E877E" opacity="0.26"/>
+  <rect y="145" width="1200" height="985" fill="url(#desktopGlow)"/>
+
+  <rect x="-36" y="562" width="58" height="126" rx="20" fill="#4B3E6E" opacity="0.85"/>
+  <rect x="1015" y="335" width="224" height="96" rx="18" fill="#111114" opacity="0.38"/>
+  <rect x="136" y="772" width="164" height="166" rx="20" fill="#111215" opacity="0.38"/>
+  <rect x="0" y="772" width="1200" height="94" fill="#3A3740" opacity="0.52"/>
+  <circle cx="121" cy="738" r="4" fill="#FF8D7A"/>
+  <circle cx="137" cy="738" r="4" fill="#FF8D7A"/>
+  <circle cx="153" cy="738" r="4" fill="#FF8D7A"/>
+  <text x="1031" y="382" fill="#ECE9E4" font-family="Avenir Next, SF Pro Display, Segoe UI, sans-serif" font-size="52" font-weight="500" opacity="0.52">ER</text>
+  <path d="M177 978H225" stroke="#BBB8B3" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+  <path d="M269 979H322" stroke="#BBB8B3" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+  <text x="170" y="1108" fill="#A5A3A8" font-family="Avenir Next, SF Pro Display, Segoe UI, sans-serif" font-size="22" font-weight="600" opacity="0.5">dist-electron</text>
+
+  <circle cx="150" cy="65" r="26" fill="#DED6AA"/>
+  <circle cx="150" cy="65" r="24.5" stroke="#F2EBCB" stroke-opacity="0.42"/>
+
+  <path d="M274 60C291 44 313 36 337 36C362 36 384 44 401 60" stroke="#F3F0EC" stroke-width="7" stroke-linecap="round"/>
+  <path d="M290 77C302 66 319 60 337 60C355 60 372 66 384 77" stroke="#F3F0EC" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="337" cy="92" r="6.5" fill="#F3F0EC"/>
+
+  <path d="M486 39V92" stroke="#F3F0EC" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M468 53L504 80L475 103" stroke="#F3F0EC" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M486 60L466 88L506 68" stroke="#F3F0EC" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="576" y="35" width="63" height="52" rx="8" stroke="#F3F0EC" stroke-width="6"/>
+  <path d="M576 53H639" stroke="#F3F0EC" stroke-width="6"/>
+  <path d="M592 28V49" stroke="#F3F0EC" stroke-width="6" stroke-linecap="round"/>
+  <path d="M622 28V49" stroke="#F3F0EC" stroke-width="6" stroke-linecap="round"/>
+
+  <path d="M744 48L763 63H780V82H763L744 97V48Z" stroke="#F3F0EC" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M788 38L836 103" stroke="#F3F0EC" stroke-width="7" stroke-linecap="round"/>
+
+  <rect x="874" y="36" width="64" height="48" rx="6" stroke="#F3F0EC" stroke-width="6"/>
+  <path d="M885 94H927" stroke="#F3F0EC" stroke-width="6" stroke-linecap="round"/>
+  <path d="M905 84V103" stroke="#F3F0EC" stroke-width="6" stroke-linecap="round"/>
+
+  <rect x="1040" y="24" width="72" height="54" rx="16" fill="#F7F5F0"/>
+  <text x="1076" y="61" text-anchor="middle" fill="#5C5A5A" font-family="Avenir Next, SF Pro Display, Segoe UI, sans-serif" font-size="36" font-weight="800">A</text>
+
+  <rect x="56" y="180" width="1088" height="900" rx="44" fill="#1E1E21"/>
+  <rect x="56.75" y="180.75" width="1086.5" height="898.5" rx="43.25" stroke="#55545B" stroke-width="1.5"/>
+  <rect x="61" y="185" width="1078" height="890" rx="40" stroke="#8A888F" stroke-opacity="0.16" stroke-width="2"/>
+  <rect x="56" y="180" width="1088" height="900" rx="44" fill="url(#window)"/>
+  <rect x="74" y="202" width="94" height="94" rx="26" fill="#2C2C31"/>
+  <rect x="1032" y="202" width="94" height="94" rx="26" fill="#2C2C31"/>
+
+  <circle cx="121" cy="249" r="24" stroke="#E6E6EA" stroke-width="5"/>
+  <circle cx="121" cy="239" r="9" stroke="#E6E6EA" stroke-width="5"/>
+  <path d="M107 262C111 254 118 250 126 250C134 250 141 254 145 262" stroke="#E6E6EA" stroke-width="5" stroke-linecap="round"/>
+
+  <circle cx="1079" cy="249" r="16" stroke="#E6E6EA" stroke-width="5"/>
+  <path d="M1079 224V214" stroke="#E6E6EA" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1079 284V274" stroke="#E6E6EA" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1104 249H1114" stroke="#E6E6EA" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1044 249H1054" stroke="#E6E6EA" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1096 232L1103 225" stroke="#E6E6EA" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1055 273L1062 266" stroke="#E6E6EA" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1096 266L1103 273" stroke="#E6E6EA" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1055 225L1062 232" stroke="#E6E6EA" stroke-width="4" stroke-linecap="round"/>
+
+  <text x="600" y="255" text-anchor="middle" fill="#F3F3F6" font-family="Avenir Next, SF Pro Display, Segoe UI, sans-serif" font-size="56" font-weight="700">March 2026</text>
+
+  <g fill="#F5F5F8" font-family="Avenir Next, SF Pro Display, Segoe UI, sans-serif" font-size="50" font-weight="600" text-anchor="middle">
+    <text x="145" y="372">1</text>
+    <text x="295" y="372">2</text>
+    <text x="445" y="372">3</text>
+    <text x="595" y="372">4</text>
+    <text x="745" y="372">5</text>
+    <text x="895" y="372">6</text>
+    <text x="1045" y="372">7</text>
+
+    <text x="145" y="492">8</text>
+    <text x="295" y="492">9</text>
+    <text x="445" y="492">10</text>
+    <text x="595" y="492">11</text>
+    <text x="745" y="492">12</text>
+    <text x="895" y="492">13</text>
+    <text x="1045" y="492">14</text>
+
+    <text x="145" y="612">15</text>
+    <text x="295" y="612">16</text>
+    <text x="445" y="612">17</text>
+    <text x="595" y="612">18</text>
+    <text x="745" y="612">19</text>
+    <text x="895" y="612">20</text>
+    <text x="1045" y="612">21</text>
+
+    <text x="145" y="732">22</text>
+    <text x="295" y="732">23</text>
+    <text x="445" y="732">24</text>
+    <text x="595" y="732">25</text>
+    <text x="745" y="732">26</text>
+    <text x="895" y="732">27</text>
+    <text x="1045" y="732">28</text>
+
+    <text x="145" y="852">29</text>
+    <text x="295" y="852">30</text>
+    <text x="445" y="852">31</text>
+  </g>
+
+  <g fill="#6C6D73" font-family="Avenir Next, SF Pro Display, Segoe UI, sans-serif" font-size="50" font-weight="600" text-anchor="middle">
+    <text x="595" y="852">1</text>
+    <text x="745" y="852">2</text>
+    <text x="895" y="852">3</text>
+    <text x="1045" y="852">4</text>
+
+    <text x="145" y="972">5</text>
+    <text x="295" y="972">6</text>
+    <text x="445" y="972">7</text>
+    <text x="595" y="972">8</text>
+    <text x="745" y="972">9</text>
+    <text x="895" y="972">10</text>
+    <text x="1045" y="972">11</text>
+  </g>
+
+  <g>
+    <circle cx="445" cy="538" r="8" fill="#A34BE8"/>
+    <circle cx="582" cy="538" r="8" fill="#A34BE8"/>
+    <circle cx="606" cy="538" r="8" fill="#F8C51C"/>
+    <circle cx="745" cy="538" r="8" fill="#F8C51C"/>
+
+    <circle cx="282" cy="658" r="8" fill="#A34BE8"/>
+    <circle cx="307" cy="658" r="8" fill="#27B373"/>
+    <circle cx="432" cy="658" r="8" fill="#8F43DF"/>
+    <circle cx="458" cy="658" r="8" fill="#E2692B"/>
+    <circle cx="582" cy="658" r="8" fill="#F8C51C"/>
+    <circle cx="745" cy="658" r="8" fill="#F8C51C"/>
+
+    <circle cx="132" cy="778" r="8" fill="#EC57F0"/>
+    <circle cx="157" cy="778" r="8" fill="#A14BE2"/>
+    <circle cx="282" cy="778" r="8" fill="#8F43DF"/>
+    <rect x="419" y="783" width="52" height="10" rx="5" fill="#F84A45"/>
+    <circle cx="545" cy="778" r="8" fill="#F84A45"/>
+    <circle cx="570" cy="778" r="8" fill="#EC57F0"/>
+    <circle cx="595" cy="778" r="8" fill="#F8C51C"/>
+    <circle cx="620" cy="778" r="8" fill="#8F43DF"/>
+    <circle cx="732" cy="778" r="8" fill="#F8C51C"/>
+    <circle cx="757" cy="778" r="8" fill="#8F43DF"/>
+    <circle cx="895" cy="778" r="8" fill="#8F43DF"/>
+
+    <circle cx="445" cy="898" r="8" fill="#EC57F0"/>
+    <circle cx="545" cy="898" r="8" fill="#F8C51C"/>
+    <circle cx="695" cy="898" r="8" fill="#F8C51C"/>
+
+    <circle cx="237" cy="1018" r="8" fill="#29B579"/>
+    <circle cx="264" cy="1018" r="8" fill="#8D45DC"/>
+    <circle cx="384" cy="1018" r="8" fill="#29B579"/>
+    <circle cx="534" cy="1018" r="8" fill="#F8C51C"/>
+    <circle cx="559" cy="1018" r="8" fill="#29B579"/>
+    <circle cx="706" cy="1018" r="8" fill="#29B579"/>
+    <circle cx="731" cy="1018" r="8" fill="#F8C51C"/>
+    <circle cx="881" cy="1018" r="8" fill="#29B579"/>
+    <circle cx="1031" cy="1018" r="8" fill="#29B579"/>
+  </g>
+</svg>

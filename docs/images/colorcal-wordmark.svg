@@ -1,0 +1,53 @@
+<svg width="1200" height="280" viewBox="0 0 1200 280" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ColorCal wordmark</title>
+  <desc id="desc">A colorful wordmark for the ColorCal project.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="pink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FB7185"/>
+      <stop offset="100%" stop-color="#F43F5E"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FDBA74"/>
+      <stop offset="100%" stop-color="#F97316"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7DD3FC"/>
+      <stop offset="100%" stop-color="#0EA5E9"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#86EFAC"/>
+      <stop offset="100%" stop-color="#22C55E"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#020617" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <rect x="48" y="42" width="196" height="196" rx="44" fill="url(#bg)"/>
+    <circle cx="96" cy="92" r="16" fill="url(#pink)"/>
+    <circle cx="146" cy="92" r="16" fill="url(#orange)"/>
+    <circle cx="196" cy="92" r="16" fill="url(#blue)"/>
+    <circle cx="96" cy="142" r="16" fill="url(#green)"/>
+    <circle cx="146" cy="142" r="16" fill="#F8FAFC"/>
+    <circle cx="196" cy="142" r="16" fill="url(#pink)"/>
+    <circle cx="96" cy="192" r="16" fill="url(#blue)"/>
+    <circle cx="146" cy="192" r="16" fill="url(#orange)"/>
+    <circle cx="196" cy="192" r="16" fill="url(#green)"/>
+  </g>
+
+  <path d="M320 68H328" stroke="#F43F5E" stroke-width="10" stroke-linecap="round"/>
+  <path d="M320 110H328" stroke="#0EA5E9" stroke-width="10" stroke-linecap="round"/>
+  <path d="M320 152H328" stroke="#22C55E" stroke-width="10" stroke-linecap="round"/>
+
+  <text x="360" y="132" fill="#0F172A" font-family="Avenir Next, SF Pro Display, Segoe UI, sans-serif" font-size="84" font-weight="800" letter-spacing="-2">
+    ColorCal
+  </text>
+  <text x="362" y="182" fill="#475569" font-family="Avenir Next, SF Pro Text, Segoe UI, sans-serif" font-size="28" font-weight="600" letter-spacing="0.5">
+    A color-first menu bar calendar for macOS
+  </text>
+</svg>
